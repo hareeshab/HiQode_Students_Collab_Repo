@@ -1,19 +1,20 @@
-
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 
 export function TaskItem({ task, onToggle, onEdit, onRemove }) {
-  const [editing, setEditing] = useState(false)
-  const [text, setText] = useState(task.title)
-  const inputRef = useRef(null)
+  const [editing, setEditing] = useState(false);
+  const [text, setText] = useState(task.title);
+  const inputRef = useRef(null);
 
-  useEffect(() => { if (editing) inputRef.current?.focus() }, [editing])
-  useEffect(() => setText(task.title), [task.title])
+  useEffect(() => {
+    if (editing) inputRef.current?.focus();
+  }, [editing]);
+  useEffect(() => setText(task.title), [task.title]);
 
   function save() {
-    const v = text.trim()
-    if (!v) return
-    onEdit(v)
-    setEditing(false)
+    const v = text.trim();
+    if (!v) return;
+    onEdit(v);
+    setEditing(false);
   }
 
   return (
@@ -28,15 +29,17 @@ export function TaskItem({ task, onToggle, onEdit, onRemove }) {
           ref={inputRef}
           className="edit"
           value={text}
-          onChange={e => setText(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           onBlur={save}
-          onKeyDown={e => (e.key === 'Enter' ? save() : null)}
+          onKeyDown={(e) => (e.key === "Enter" ? save() : null)}
         />
       ) : (
-        <span className={task.done ? 'title done' : 'title'}>{task.title}</span>
+        <span className={task.done ? "title done" : "title"}>{task.title}</span>
       )}
-
-      <button className="remove" onClick={onRemove} title="Delete">✕</button>
+      <span>{task.createdAt}</span>
+      <button className="remove" onClick={onRemove} title="Delete">
+        ✕
+      </button>
     </li>
-  )
+  );
 }
