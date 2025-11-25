@@ -9,12 +9,12 @@ export function Filters({ value, onChange }) {
   ]
   return (
     <div className="tabs">
-      {tabs.map(t => (
+      {tabs.map(tab => (
         <button
-          key={t.id}
-          className={value === t.id ? 'tab active' : 'tab'}
-          onClick={() => onChange(t.id)}
-        >{t.label}</button>
+          key={tab.id}
+          className={value === tab.id ? 'tab active' : 'tab'}
+          onClick={() => onChange(tab.id)}
+        >{tab.label}</button>
       ))}
     </div>
   )

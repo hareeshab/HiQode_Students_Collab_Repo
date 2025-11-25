@@ -14,6 +14,7 @@ export function NewTask({ onAdd }) {
   return (
     <form className="new" onSubmit={submit}>
       <input
+        type="text"
         className="input"
         placeholder="Add a task…"
         value={val}
