@@ -1,21 +1,29 @@
-
 import React from 'react'
 
 export function Filters({ value, onChange }) {
-  const tabs = [
-    { id: 'all', label: 'All' },
-    { id: 'active', label: 'Active' },
-    { id: 'completed', label: 'Completed' }
-  ]
   return (
     <div className="tabs">
-      {tabs.map(t => (
-        <button
-          key={t.id}
-          className={value === t.id ? 'tab active' : 'tab'}
-          onClick={() => onChange(t.id)}
-        >{t.label}</button>
-      ))}
+      <button
+        className={value === 'all' ? 'active' : ''}
+        onClick={() => onChange('all')}
+      >
+        All
+      </button>
+
+      <button
+        className={value === 'active' ? 'active' : ''}
+        onClick={() => onChange('active')}
+      >
+        Active
+      </button>
+
+      <button
+        className={value === 'completed' ? 'active' : ''}
+        onClick={() => onChange('completed')}
+      >
+        Completed
+      </button>
     </div>
   )
 }
+
