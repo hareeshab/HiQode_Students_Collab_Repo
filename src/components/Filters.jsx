@@ -5,7 +5,7 @@ export function Filters({ value, onChange }) {
   const tabs = [
     { id: 'all', label: 'All' },
     { id: 'active', label: 'Active' },
-    { id: 'completed', label: 'Completed' }
+    { id: 'Done', label: 'Done' } 
   ]
   return (
     <div className="tabs">
