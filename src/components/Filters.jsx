@@ -4,8 +4,8 @@ import React from 'react'
 export function Filters({ value, onChange }) {
   const tabs = [
     { id: 'all', label: 'All' },
-    { id: 'active', label: 'Active' },
-    { id: 'completed', label: 'Completed' }
+    { id: 'running', label: 'Running' },
+    { id: 'achieved', label: 'Achieved' }
   ]
   return (
     <div className="tabs">
