@@ -21,7 +21,7 @@ npm run build
 npm run preview
 
 npm run build
-npm run preview -- --host 0.0.0.0 --port 8080
+npm run preview --host 0.0.0.0 --port 8080
 ```
 
 ## Tech
