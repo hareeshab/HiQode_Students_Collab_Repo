@@ -9,30 +9,16 @@ export default function App() {
   const [tasks, setTasks] = useLocalState("hiqode.tasks", []);
   const [filter, setFilter] = useLocalState("hiqode.filter", "all");
 
-  // ⭐ NEW: Search state
-  const [search, setSearch] = useState("");
-
   useEffect(() => {
     if (!Array.isArray(tasks)) setTasks([]);
   }, []);
 
   // ⭐ UPDATED: Combined Filtering (Tabs + Search)
   const filtered = useMemo(() => {
-    let list = tasks;
-
-    // Tabs filter
-    if (filter === "active") list = list.filter((t) => !t.done);
-    if (filter === "completed") list = list.filter((t) => t.done);
-
-    // Search filter
-    if (search.trim() !== "") {
-      list = list.filter((t) =>
-        t.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    return list;
-  }, [tasks, filter, search]);
+    if (filter === "active") return tasks.filter((t) => !t.done);
+    if (filter === "completed") return tasks.filter((t) => t.done);
+    return tasks;
+  }, [tasks, filter]);
 
   const stats = useMemo(
     () => ({
@@ -42,16 +28,20 @@ export default function App() {
     [tasks]
   );
 
-  function addTask(title, category, dueDate) {
+  function addTask(title) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1; // add +1 (0-based)
+    const day = now.getDate();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
     setTasks((prev) => [
       ...prev,
       {
         id: crypto.randomUUID(),
         title: title.trim(),
-        category,
-        dueDate, // ⭐ NEW
         done: false,
-        createdAt: Date.now(),
+        createdAt: `${day}-${month}-${year} ${hours}:${minutes}`
       },
     ]);
   }
@@ -88,9 +78,9 @@ export default function App() {
       </header>
 
       <main className="panel">
-        <h1>HiQode Tasks Manager</h1>
+        <h1>HiQode Tasks</h1>
         <p className="muted">
-          Double-click a task to edit. Click the checkbox to mark done.
+          Double‑click a task to edit. Click the checkbox to mark done.
         </p>
 
         <NewTask onAdd={addTask} />

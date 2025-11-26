@@ -21,6 +21,9 @@ npm run dev     # http://localhost:5173
 ```bash
 npm run build
 npm run preview
+
+npm run build
+npm run preview --host 0.0.0.0 --port 8080
 ```
 
 ## Tech
