@@ -4,7 +4,7 @@ export function Filters({ value, onChange, searchValue, onSearchChange }) {
   const tabs = [
     { id: "all", label: "All" },
     { id: "active", label: "ACTIVATE" },
-    { id: "completed", label: "Completed" },
+    { id: "completed", label: "COMPLETED" },
   ];
 
   return (
