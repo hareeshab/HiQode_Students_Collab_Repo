@@ -3,7 +3,7 @@ import React from "react";
 export function Filters({ value, onChange, searchValue, onSearchChange }) {
   const tabs = [
     { id: "all", label: "All" },
-    { id: "active", label: "Active" },
+    { id: "active", label: "ACTIVATE" },
     { id: "completed", label: "Completed" },
   ];
 
