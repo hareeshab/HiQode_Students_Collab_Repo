@@ -1,11 +1,10 @@
-
-import React from 'react'
+import React from "react";
 
 export function Logo() {
   return (
     <div className="logo">
-      <div className="dot" />
-      <span>HiQode</span>
+      <img src="src/components/logo/logo.png" className="logo" />
+      <span>Innovations</span>
     </div>
-  )
+  );
 }
