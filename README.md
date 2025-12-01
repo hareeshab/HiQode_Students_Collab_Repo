@@ -7,7 +7,7 @@ An ultra-simple, elegant **React** app with a modern UI (glass look) that stores
 - Add, edit, complete, delete tasks
 - Filters: All / Active / Completed
 - Local persistence (localStorage)
-- Clean, responsive UI (mobile-first)
+- Clean, responsive UI (Mobile-first)
 
 ## Run locally
 
